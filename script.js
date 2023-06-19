@@ -34,6 +34,14 @@ const app = Vue.createApp({
         }
     ]
         }
+    },
+    methods: {
+        goToNext () {
+            this.currentIndex++;
+        },
+        goToPrev () {
+            this.currentIndex++;
+        },
     }
 });
 

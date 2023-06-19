@@ -26,13 +26,13 @@
         <!--Carosello-->
         <div id="carousel">
             <!--Iconcina per andare alla foto precedente-->
-            <i class="fa-solid fa-left-long" id="prev"></i>
+            <i class="fa-solid fa-left-long" id="prev" @click="goToPrev"></i>
             <!--Galleria immagini-->
             <div class="gallery">
                 <img v-for= "(pic, i) in pictures" v-show="currentIndex === i"  :src="pic.url" :alt="pic.description" :title="pic.title" class="active">
             </div>
             <!--Iconcina per andare alla foto successiva-->
-            <i class="fa-solid fa-right-long" id="next"></i>
+            <i class="fa-solid fa-right-long" id="next" @click="goToNext"></i>
         </div>
         <!--Thumbnails-->
         <div id="thumbnails">
