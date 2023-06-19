@@ -47,7 +47,7 @@ const app = Vue.createApp({
     computed: {
         //QUANDO ARRIVO ALL'ULTIMA FOTO:
         ultimaFoto() {
-            return this.currentIndex === this.pictures.lenght - 1
+            return this.currentIndex === this.pictures.length - 1
         }
     },
 
