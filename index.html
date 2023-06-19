@@ -22,18 +22,22 @@
 </head>
 <body>
     <!--Contenitore-->
-    <div class="container">
+    <div id="root" class="container">
         <!--Carosello-->
         <div id="carousel">
             <!--Iconcina per andare alla foto precedente-->
             <i class="fa-solid fa-left-long" id="prev"></i>
             <!--Galleria immagini-->
-            <div class="gallery"></div>
+            <div class="gallery">
+                <img v-for= "(pic, i) in pictures" v-show="currentIndex === i"  :src="pic.url" :alt="pic.description" :title="pic.title" class="active">
+            </div>
             <!--Iconcina per andare alla foto successiva-->
             <i class="fa-solid fa-right-long" id="next"></i>
         </div>
         <!--Thumbnails-->
-        <div id="thumbnails"></div>
+        <div id="thumbnails">
+            <img v-for="(pic, i) in pictures" :src="pic.url" :alt="pic.description" :title="pic.title" :class="{active : currentIndex === i}">
+        </div>
     </div>
 </body>
 </html>

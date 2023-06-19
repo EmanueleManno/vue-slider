@@ -1,16 +1,51 @@
 //VEDO SE FUNZIONA VUE:
 console.log('VUE OK', Vue);
 
-//ESTRAPOLO IL METODO CREATE APP:
-const { createApp } = Vue;
-
 //INIZIALIZZO L'APP VUE:
-const app = createApp({});
+const app = Vue.createApp({
+    name: 'carousel', 
+    data() {
+        return {
+            currentIndex: 0,
+            pictures: [{
+            url: 'img/01.webp',
+            title: 'Immagine 1',
+            description: 'Questa è la prima immagine'
+        },
+        {
+            url: 'img/02.webp',
+            title: 'Immagine 2',
+            description: 'Questa è la seconda immagine'
+        },
+        {
+            url: 'img/03.webp',
+            title: 'Immagine 3',
+            description: 'Questa è la terza immagine'
+        },
+        {
+            url: 'img/04.webp',
+            title: 'Immagine 4',
+            description: 'Questa è la quarta immagine'
+        },
+        {
+            url: 'img/05.webp',
+            title: 'Immagine 5',
+            description: 'Questa è la quinta immagine'
+        }
+    ]
+        }
+    }
+});
 
 //LA MONTO NELL'ELEMENTO HTML RADICE:
-app.mount('#carousel');
+app.mount('#root');
+
+
+
+
 //QUI DI SEGUITO CODICE JAVASCRIPT ESERCIZIO CAROSELLO:
 
+/*
 //VEDO SE FUNZIONA 
 console.log('JS OK');
 
@@ -68,4 +103,4 @@ prevButton.addEventListener('click', function () {
 
     //AGGIUNGO LA CLASSE ATTIVA ALL'IMMAGINE CORRISPONDENTE AL NUOVO INDICE:
     images[currentIndex].classList.add('active');
-})
+}) */
