@@ -3,47 +3,66 @@ console.log('VUE OK', Vue);
 
 //INIZIALIZZO L'APP VUE:
 const app = Vue.createApp({
+
+    //CAROSELLO CONTENENTE I DATI DELLE IMMAGINI:
     name: 'carousel', 
     data() {
         return {
             currentIndex: 0,
             pictures: [{
+
+            //PRIMA IMMAGINE:
             url: 'img/01.webp',
-            title: 'Immagine 1',
-            description: 'Questa è la prima immagine'
+            title: 'Marvel\'s Spiderman Miles Morale',
+            description: 'Experience the rise of Miles Morales as the new hero masters incredible, explosive new powers to become his own Spider-Man.'
         },
         {
+            //SECONDA IMMAGINE:
             url: 'img/02.webp',
-            title: 'Immagine 2',
-            description: 'Questa è la seconda immagine'
+            title: 'Ratchet & Clank: Rift Apart',
+            description: 'Go dimension-hopping with Ratchet and Clank as they take on an evil emperor from another reality'
         },
         {
+            //TERZA IMMAGINE:
             url: 'img/03.webp',
-            title: 'Immagine 3',
-            description: 'Questa è la terza immagine'
+            title: 'Fortnite',
+            description: 'Grab all of your friends and drop into Epic Games Fortnite, a massive 100 - player face - off that combines looting, crafting, shootouts and chaos.'
         },
         {
+            //QUARTA IMMAGINE:
             url: 'img/04.webp',
-            title: 'Immagine 4',
-            description: 'Questa è la quarta immagine'
+            title: 'Stray',
+            description: 'Lost, injured and alone, a stray cat must untangle an ancient mystery to escape a long-forgotten city'
         },
         {
+            //QUINTA IMMAGINE:
             url: 'img/05.webp',
-            title: 'Immagine 5',
-            description: 'Questa è la quinta immagine'
+            title: 'Marvel\'s Avengers',
+            description: 'Marvel\'s Avengers is an epic, third-person, action-adventure game that combines an original, cinematic story with single-player and co-operative gameplay.'
         }
     ]
         }
     },
+
+    computed: {
+        //QUANDO ARRIVO ALL'ULTIMA FOTO:
+        ultimaFoto() {
+            return this.currentIndex === this.pictures.lenght - 1
+        }
+    },
+
     methods: {
-        goToNext () {
-            this.currentIndex++;
+        //VADO ALLA PROSSIMA FOTO:
+        prossimo () {
+            if (this.ultimaFoto) this.currentIndex = 0;
+            else this.currentIndex++;
         },
-        goToPrev () {
-            this.currentIndex++;
+
+        //VADO ALLA FOTO PRECEDENTE:
+        precedente () {
+            this.currentIndex--;
         },
-    }
-});
+}})
 
 //LA MONTO NELL'ELEMENTO HTML RADICE:
 app.mount('#root');
