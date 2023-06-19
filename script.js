@@ -8,6 +8,7 @@ const app = Vue.createApp({
     name: 'carousel', 
     data() {
         return {
+            autoplay: null,
             currentIndex: 0,
             pictures: [{
 
@@ -60,13 +61,29 @@ const app = Vue.createApp({
 
         //VADO ALLA FOTO PRECEDENTE:
         precedente () {
-            this.currentIndex--;
+            if (this.currentIndex) this.currentIndex--;
+            else this.currentIndex = this.pictures.length -1;
         },
 
-        //SETTARE INDICE CORRENTE:
+        //IMPOSTARE L'INDICE PER IL THUMBNAIL: (BONUS 1)
         setCurrentIndex(targetIndex) {
             this.currentIndex = targetIndex;
-        }
+        },
+
+        //FAR FINIRE L'AUTOPLAY:
+        stopAutoplay () {
+            clearInterval(this.autoplay);
+        },
+
+        //FAR PARTIRE L'AUTOPLAY:
+        startAutoplay () {
+            this.autoplay = setInterval(this.prossimo, 2000)
+        },
+    },
+
+    //CAMBIO AUTOMATICO DELL'IMMAGINE ALL'AVVIO DELLA PAGINA: (BONUS 2)
+    automatico() {
+    this.startAutoplay(); 
 }})
 
 //LA MONTO NELL'ELEMENTO HTML RADICE:
