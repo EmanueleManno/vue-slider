@@ -46,7 +46,7 @@
         <!--Thumbnails-->
         <div id="thumbnails">
             <img v-for="(pic, i) in pictures" :src="pic.url" :alt="pic.description" :title="pic.title" 
-            :class="{active : currentIndex === i}">
+            :class="{active : currentIndex === i}" @click="setCurrentIndex(i)">
         </div>
     </div>
 </body>

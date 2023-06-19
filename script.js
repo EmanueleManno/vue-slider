@@ -62,6 +62,11 @@ const app = Vue.createApp({
         precedente () {
             this.currentIndex--;
         },
+
+        //SETTARE INDICE CORRENTE:
+        setCurrentIndex(targetIndex) {
+            this.currentIndex = targetIndex;
+        }
 }})
 
 //LA MONTO NELL'ELEMENTO HTML RADICE:
